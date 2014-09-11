@@ -1,4 +1,4 @@
-package org.agjin.study.generic;
+package org.agjin.java.tutorial.generic;
 
 public class Person<T> {
 	public T info;

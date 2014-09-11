@@ -1,4 +1,4 @@
-package org.agjin.study.generic;
+package org.agjin.java.tutorial.generic;
 
 abstract class Info{
 	public abstract int getLevel();
