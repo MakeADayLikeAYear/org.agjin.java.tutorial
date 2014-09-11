@@ -16,6 +16,17 @@
 			<scope>test</scope>
 		</dependency>
 		
+		<!--
+		build 에 있는  maven-compiler-plugin 때문에 에러가 발생한 경우 아래의 것을 추가한다.
+		-> maven-resources-plugin 추가.
+		단, build는 주석으로 막고 jar 파일을 받은후 다시 풀면된다.!!
+		build를 주석으로 막지 않는 경우 maven으로 jar파일들이 받아지지 않기때문에 계속에러가 발생한다.ㅡㅡ;
+		 -->
+		<dependency>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-resources-plugin</artifactId>
+			<version>2.4.3</version>
+		</dependency>
 		
 	</dependencies>
 	
