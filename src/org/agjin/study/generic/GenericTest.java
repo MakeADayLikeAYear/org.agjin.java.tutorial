@@ -15,8 +15,8 @@ public class GenericTest {
 	 */
 	@Test
 	public void TypeTest() {
-		Persion<String> p1 = new Persion<String>();
-		Persion<StringBuffer> p2 = new Persion<StringBuffer>();
+		Person<String> p1 = new Person<String>();
+		Person<StringBuffer> p2 = new Person<StringBuffer>();
 		
 		p1.info = "a";
 		p2.info = new StringBuffer("aa");
@@ -36,7 +36,7 @@ public class GenericTest {
 		EmployeeInfo e = new EmployeeInfo(1);
 		Integer i = new Integer(10);
 		
-		Persion2<EmployeeInfo, Integer> p1 = new Persion2<EmployeeInfo, Integer>(e, i);
+		Person2<EmployeeInfo, Integer> p1 = new Person2<EmployeeInfo, Integer>(e, i);
 		assertThat(p1.info, instanceOf(EmployeeInfo.class));
 		assertThat(p1.id, instanceOf(Integer.class));
 		
@@ -44,7 +44,7 @@ public class GenericTest {
 		 * 제네릭 생략 가능하다.
 		 */
 		@SuppressWarnings("rawtypes")
-		Persion2 p2 = new Persion2(e, i);
+		Person2 p2 = new Person2(e, i);
 		assertThat(p2.info, instanceOf(EmployeeInfo.class));
 		assertThat(p2.id, instanceOf(Integer.class));
 		
@@ -67,6 +67,12 @@ public class GenericTest {
 	 */
 	@Test
 	public void extendsTest() {
-		
+		 Person3<EmployeeInfo> p1 = new Person3<EmployeeInfo>(new EmployeeInfo(1));
+		 
+		 /**
+		  * Person3<String> p2 = new Person3<String>("부장");
+		  * Error --> Info 를 상속한 Class가 오지 않았으므로 
+		  */
+		 assertThat(p1.info, instanceOf(Info.class));
 	}
 }
